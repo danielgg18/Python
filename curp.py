@@ -1,4 +1,4 @@
-#Nombre del programa: calcCurp.py
+#Nombre del programa: curp.py
 #Autor: Daniel Garcia
 #Fecha: 05/06/22
 #Descripcion del programa: Programa que calcula el CURP con los datos de una persona
