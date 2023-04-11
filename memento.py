@@ -1,18 +1,17 @@
-#Ejemplo básico sobre el funcionamiento del patron de diseño "Memento"
-
 class Editor:
     def __init__(self):
         self._content = ''
         self._memento = None
+        self._states = []
 
     def add_text(self, text):
-        self._memento = Memento(self._content)
+        self._states.append(self._content)
         self._content += text
 
     def undo(self):
-        if self._memento:
-            self._content = self._memento.get_saved_content()
-            self._memento = None
+        if len(self._states) > 0:
+            self._content = self._states[-1]
+            self._states.pop(-1)
 
     def get_content(self):
         return self._content
@@ -25,8 +24,18 @@ class Memento:
         return self._content
 
 editor = Editor()
-editor.add_text('Hola')
-editor.add_text(' Mundo')
-print(editor.get_content()) # Hola Mundo
-editor.undo()
-print(editor.get_content()) # Hola
+while True:
+    command = int(input("Ingrese un comando (1: escribir / 2: deshacer / 3: salir): "))
+    if command == 1:
+        text = input("Ingrese el texto a agregar: ")
+        editor.add_text(text)
+        print("Contenido actual: ", editor.get_content())
+    elif command == 2:
+        editor.undo()
+        print("Contenido actual: ", editor.get_content())
+    elif command == 3:
+        break
+    else:
+        print("Comando no reconocido, intente de nuevo.")
+
+print("Programa terminado.")
