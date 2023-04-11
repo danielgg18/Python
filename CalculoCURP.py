@@ -1,7 +1,7 @@
-# Autor: Valencia Olmos Leonel Jordan
+# Autor: Daniel Garcia
 # Fecha: 26 de mayo de 2022
-# Archivo: conocerCURP.py
-# Funcion de generar CURP
+# Archivo: CalculoCURP.py
+# Programa que genera el CURP de una persona
 
 #Definir variables 
 #Convertimos las variables en mayusculas con comando .upper()
